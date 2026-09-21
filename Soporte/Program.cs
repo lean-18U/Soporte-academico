@@ -20,10 +20,18 @@ class Program
         if (t == "otro") return true;
         return false;
     }
-
+    static void MostrarMenu()
+    {
+        System.Console.WriteLine("BIENVENIDOS AL SOPORTE ACADEMICO");
+        System.Console.WriteLine("1.- Registrar solicitud");
+        System.Console.WriteLine("2.- Salir");
+        System.Console.WriteLine("opcion: ");
+    }
     static void Main()
     {
         Console.WriteLine("Sistema de soporte academico");
+
+        MostrarMenu();
 
         Console.Write("Codigo: ");
         string codigo = Console.ReadLine();
