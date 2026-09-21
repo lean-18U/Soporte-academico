@@ -25,7 +25,7 @@ class Program
         System.Console.WriteLine("BIENVENIDOS AL SOPORTE ACADEMICO");
         System.Console.WriteLine("1.- Registrar solicitud");
         System.Console.WriteLine("2.- Salir");
-        System.Console.WriteLine("opcion: ");
+        System.Console.Write("opcion: ");
     }
     static string Asignarprioridad(string tipo)
     {
@@ -34,13 +34,22 @@ class Program
         return "Alta";
         if(t == "matricula")
         return "Media";
-        return "baja";
+        return "Baja";
     }
     static bool ValidarTexto(string texto)
     {
         if(texto == null ) return false;
         if(texto.Trim() == "") return false;
         return true;
+    }
+    static void MostrarResumen(string cod, string nom, string tipo,string desc, string pri)
+    {
+        System.Console.WriteLine("RESUMEN DE SOLICITUD");
+        System.Console.WriteLine("codigo: " + cod);
+        System.Console.WriteLine("Nombre " + nom);
+        System.Console.WriteLine("Tipo: " + tipo);
+        System.Console.WriteLine("Descripcion " + desc);
+        System.Console.WriteLine("Prioridad " + pri);
     }
     static void Main()
     {
@@ -66,7 +75,7 @@ class Program
             return;
         }
 
-        Console.Write("Tipo (matricula/pago/plataforma virtual/otros): ");
+        Console.Write("Tipo (matricula/pagos/constancia/plataforma/otro): ");
         string tipo = Console.ReadLine();
 
         if(ValidarTipo(tipo) == false)
@@ -79,7 +88,7 @@ class Program
         string descripcion = Console.ReadLine();
         
         string prioridad = Asignarprioridad(tipo);
-        System.Console.WriteLine("Prioridad asignada " + prioridad);
+        MostrarResumen (codigo, nombre, tipo, descripcion, prioridad);
 
         Console.WriteLine("Datos capturados");
     }
