@@ -1,22 +1,38 @@
 ﻿using System;
-using System.Net.WebSockets;
+
 class Program
 {
+    static bool ValidarCodigo(string codigo)
+    {
+        if (codigo == null || codigo.Trim() == "")
+            return false;
+        if (codigo.Trim().Length<5)
+            return false;
+        return true;
+    }
+
     static void Main()
     {
-        System.Console.WriteLine("Sistema de soporte academico");
-        System.Console.WriteLine("CODIGO: ");
+        Console.WriteLine("Sistema de soporte academico");
+
+        Console.Write("Codigo: ");
         string codigo = Console.ReadLine();
 
-        System.Console.WriteLine("Nombre: ");
+        if (ValidarCodigo(codigo) == false)
+        {
+            Console.WriteLine("Error: codigo invalido");
+            return;
+        }
+
+        Console.Write("Nombre: ");
         string nombre = Console.ReadLine();
 
-        System.Console.WriteLine("Tipo: ");
+        Console.Write("Tipo: ");
         string tipo = Console.ReadLine();
 
-        System.Console.WriteLine("Descripción: ");
+        Console.Write("Descripcion: ");
         string descripcion = Console.ReadLine();
 
-        System.Console.WriteLine("Datos recibidos");
+        Console.WriteLine("Datos capturados");
     }
 }
