@@ -52,44 +52,58 @@ class Program
         System.Console.WriteLine("Prioridad " + pri);
     }
     static void Main()
-    {
-        Console.WriteLine("Sistema de soporte academico");
+{
+    int registradas = 0;
 
+    while (registradas < 3)
+    {
         MostrarMenu();
+        string opcion = Console.ReadLine();
+
+        if (opcion == "2") break;
+
+        if (opcion != "1")
+        {
+            Console.WriteLine("Opcion invalida.");
+            continue;
+        }
 
         Console.Write("Codigo: ");
         string codigo = Console.ReadLine();
 
         if (ValidarCodigo(codigo) == false)
         {
-            Console.WriteLine("Error: codigo invalido");
-            return;
+            Console.WriteLine("Error: codigo invalido.");
+            continue;
         }
 
         Console.Write("Nombre: ");
         string nombre = Console.ReadLine();
 
-        if (ValidarTexto(nombre)== false) 
+        if (ValidarTexto(nombre) == false)
         {
-            System.Console.WriteLine("ERROR: el nombre es obligatorio");
-            return;
+            Console.WriteLine("Error: el nombre es obligatorio.");
+            continue;
         }
 
         Console.Write("Tipo (matricula/pagos/constancia/plataforma/otro): ");
         string tipo = Console.ReadLine();
 
-        if(ValidarTipo(tipo) == false)
+        if (ValidarTipo(tipo) == false)
         {
-            System.Console.WriteLine("Error: tipo de documento");
-            return;
+            Console.WriteLine("Error: tipo de consulta incorrecto.");
+            continue;
         }
 
         Console.Write("Descripcion: ");
         string descripcion = Console.ReadLine();
-        
-        string prioridad = Asignarprioridad(tipo);
-        MostrarResumen (codigo, nombre, tipo, descripcion, prioridad);
 
-        Console.WriteLine("Datos capturados");
+        string prioridad = Asignarprioridad(tipo);
+        MostrarResumen(codigo, nombre, tipo, descripcion, prioridad);
+
+        registradas++;
     }
+
+    Console.WriteLine("Total registradas: " + registradas);
+}
 }
