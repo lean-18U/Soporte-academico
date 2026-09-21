@@ -10,6 +10,16 @@ class Program
             return false;
         return true;
     }
+    static bool ValidarTipo(string tipo)
+    {
+        string t = tipo.Trim().ToLower();
+        if (t == "matricula") return true;
+        if (t == "pagos") return true;
+        if (t == "constancia") return true;
+        if (t == "plataforma") return true;
+        if (t == "otro") return true;
+        return false;
+    }
 
     static void Main()
     {
@@ -27,8 +37,14 @@ class Program
         Console.Write("Nombre: ");
         string nombre = Console.ReadLine();
 
-        Console.Write("Tipo: ");
+        Console.Write("Tipo (matricula/pago/plataforma virtual/otros): ");
         string tipo = Console.ReadLine();
+
+        if(ValidarTipo(tipo) == false)
+        {
+            System.Console.WriteLine("Error: tipo de documento");
+            return;
+        }
 
         Console.Write("Descripcion: ");
         string descripcion = Console.ReadLine();
