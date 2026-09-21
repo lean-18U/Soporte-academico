@@ -27,6 +27,15 @@ class Program
         System.Console.WriteLine("2.- Salir");
         System.Console.WriteLine("opcion: ");
     }
+    static string Asignarprioridad(string tipo)
+    {
+        string t = tipo.Trim().ToLower();
+        if(t== "pagos" || t== "plataforma")
+        return "Alta";
+        if(t == "matricula")
+        return "Media";
+        return "baja";
+    }
     static void Main()
     {
         Console.WriteLine("Sistema de soporte academico");
@@ -56,6 +65,9 @@ class Program
 
         Console.Write("Descripcion: ");
         string descripcion = Console.ReadLine();
+        
+        string prioridad = Asignarprioridad(tipo);
+        System.Console.WriteLine("Prioridad asignada " + prioridad);
 
         Console.WriteLine("Datos capturados");
     }
