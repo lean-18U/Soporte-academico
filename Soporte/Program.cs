@@ -36,6 +36,12 @@ class Program
         return "Media";
         return "baja";
     }
+    static bool ValidarTexto(string texto)
+    {
+        if(texto == null ) return false;
+        if(texto.Trim() == "") return false;
+        return true;
+    }
     static void Main()
     {
         Console.WriteLine("Sistema de soporte academico");
@@ -53,6 +59,12 @@ class Program
 
         Console.Write("Nombre: ");
         string nombre = Console.ReadLine();
+
+        if (ValidarTexto(nombre)== false) 
+        {
+            System.Console.WriteLine("ERROR: el nombre es obligatorio");
+            return;
+        }
 
         Console.Write("Tipo (matricula/pago/plataforma virtual/otros): ");
         string tipo = Console.ReadLine();
