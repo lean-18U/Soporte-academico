@@ -2,6 +2,7 @@
 
 class Program
 {
+    //Validacion de codigo del estudiante
     static bool ValidarCodigo(string codigo)
     {
         if (codigo == null || codigo.Trim() == "")
@@ -10,6 +11,7 @@ class Program
             return false;
         return true;
     }
+    //Valida que el tipo sea uno de los permitidos
     static bool ValidarTipo(string tipo)
     {
         string t = tipo.Trim().ToLower();
@@ -20,6 +22,7 @@ class Program
         if (t == "otro") return true;
         return false;
     }
+    //Muestra el menu
     static void MostrarMenu()
     {
         System.Console.WriteLine("BIENVENIDOS AL SOPORTE ACADEMICO");
@@ -27,6 +30,7 @@ class Program
         System.Console.WriteLine("2.- Salir");
         System.Console.Write("opcion: ");
     }
+    //Asigna una prioridad
     static string Asignarprioridad(string tipo)
     {
         string t = tipo.Trim().ToLower();
@@ -36,12 +40,14 @@ class Program
         return "Media";
         return "Baja";
     }
+    //Valida que el texto no este vacio
     static bool ValidarTexto(string texto)
     {
         if(texto == null ) return false;
         if(texto.Trim() == "") return false;
         return true;
     }
+    //Muestra un resumen
     static void MostrarResumen(string cod, string nom, string tipo,string desc, string pri)
     {
         System.Console.WriteLine("RESUMEN DE SOLICITUD");
